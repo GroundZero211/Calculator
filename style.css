@@ -1,0 +1,62 @@
+body {
+    color: #eee;
+    background-color: rgb(196, 193, 207);
+    font-family: arial;
+    user-select: none;
+}
+
+h2 {
+    text-align: center;
+    font-size: 4vh;
+}
+.container {
+    position: relative;
+    min-width: 40vh;
+    max-width: 60vh;
+    background-color: rgb(36, 36, 48);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#output {
+    white-space: nowrap;
+    max-width: 0px;
+    text-align: right;
+    overflow-x: scroll;
+    padding: 10px;
+    background-color: rgb(174, 174, 196);
+    color: rgb(66, 66, 66);
+}
+
+#output::-webkit-scrollbar {
+    display: none;
+}
+
+td {
+    background-color: rgb(54, 54, 71);
+    width: 15vh;
+    height: 14vh;
+    font-size: 5vh;
+    text-align: center;
+    border-radius: 10px;
+}
+
+td:active {
+    background-color:rgb(97, 94, 114);
+}
+
+#clear:active {
+    background-color: crimson;
+}
+
+.op:active {
+    background-color: rgb(99, 99, 190);
+}
+
+#ans:active {
+    background-color: rgb(17, 151, 17);
+}
+
+

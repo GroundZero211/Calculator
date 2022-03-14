@@ -1,13 +1,8 @@
 body {
     color: #eee;
-    background-color: rgb(196, 193, 207);
+    background-color: rgb(37, 35, 44);
     font-family: arial;
     user-select: none;
-}
-
-h2 {
-    text-align: center;
-    font-size: 4vh;
 }
 .container {
     position: relative;
@@ -16,8 +11,6 @@ h2 {
     background-color: rgb(36, 36, 48);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: auto;
-    padding: 20px;
-    border-radius: 20px;
 }
 
 #output {
@@ -38,9 +31,8 @@ td {
     background-color: rgb(54, 54, 71);
     width: 15vh;
     height: 14vh;
-    font-size: 5vh;
+    font-size: 3vh;
     text-align: center;
-    border-radius: 10px;
 }
 
 td:active {
@@ -58,5 +50,4 @@ td:active {
 #ans:active {
     background-color: rgb(17, 151, 17);
 }
-
 

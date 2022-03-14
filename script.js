@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const output = document.getElementById('output');
-    const btn = document.getElementsByTagName('td');
-    let n = 0;
+    const btn = document.getElementsByTagName('td');;
 
     for (let i = 1; i < btn.length; i++) {
         btn[i].onclick = function () {

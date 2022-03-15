@@ -1,12 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     const output = document.getElementById('output');
-    const btn = document.getElementsByTagName('td');;
+    const btn = document.getElementsByTagName('td');
 
     for (let i = 1; i < btn.length; i++) {
         btn[i].onclick = function () {
             // clearAll
             if (this.innerHTML == "C") {
                 output.innerHTML = '';
+                return
+            };
+
+            //negative
+            if (this.innerHTML == '+/-') {
+                output.appendChild(document.createTextNode('-'));
                 return
             };
 
@@ -30,11 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (isNaN(output.innerHTML.slice(-1))) {
                     let s = ans.split('')
                     s.pop()
-                    output.innerHTML = "=" + eval(s.join(''));
+                    output.innerHTML = "=" + eval(s.join(''))
                     return
                 };
 
-                output.innerHTML = "=" + eval(ans);
+                output.innerHTML = "=" + eval(ans)
                 return
             };
 
@@ -53,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //for operators
             if (this.innerHTML == String.fromCharCode(247) 
-                || this.innerHTML == String.fromCharCode(215) 
-                || this.innerHTML == "+" 
-                || this.innerHTML == "-") {
+                || this.innerHTML == String.fromCharCode(215)
+                || this.innerHTML == String.fromCharCode(8722)
+                || this.innerHTML == "+") {
                     if (output.innerHTML.length == 0) {
                         return
                     };
@@ -76,8 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
             
             // numbers
-            output.appendChild(document.createTextNode(this.innerHTML))
-            
+            output.appendChild(document.createTextNode(this.innerHTML))            
         };
     };
 });

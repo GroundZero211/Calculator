@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (isNaN(output.innerHTML.slice(-1))) {
                     let s = ans.split('')
-                    s.pop()
+                    s.pop();
                     output.innerHTML = "=" + eval(s.join(''))
                     return
                 };

@@ -88,26 +88,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 || this.innerHTML == String.fromCharCode(215)
                 || this.innerHTML == String.fromCharCode(8722)
                 || this.innerHTML == "+") {
+                    let x = output.innerHTML.split('');
+                    
                     if (output.innerHTML.length == 0) {
                         return
                     };
 
                     if (isNaN(output.innerHTML.slice(-1))) {
-                        let x = output.innerHTML.split('');
                         x.pop(); x.push(this.innerHTML);
                         output.innerHTML = x.join('');
                         return
                     };
 
                     if (output.innerHTML[0] == '=') {
-                        let x = output.innerHTML.split('');
                         x.shift(); x.push(this.innerHTML);
                         output.innerHTML = x.join('');
                         return
                     };
 
                     if (output.innerHTML[0] == '0') {
-                        let x = output.innerHTML.split('');
                         x.push(this.innerHTML); output.innerHTML = x.join('');
                         return
                     }

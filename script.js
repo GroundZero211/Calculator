@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btn[i].onclick = function () {
             // clearAll
             if (this.innerHTML == "C") {
-                output.innerHTML = '';
+                output.innerHTML = '0';
                 return
             };
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (isFinite(output.innerHTML[i])) {
                         y += output.innerHTML[i];
                     } else {
-                        x.push(y); x.push(output.innerHTML[i]); y = '';
+                        x.push(y, output.innerHTML[i]); y = '';
                     };
                 };
                 x.push(y);
@@ -112,6 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 output.innerHTML = this.innerHTML;
                 return
             };
+
+            if (output.innerHTML[0] == '0') {
+                output.innerHTML = this.innerHTML;
+                return
+            };
+
             output.appendChild(document.createTextNode(this.innerHTML));
         };
     };

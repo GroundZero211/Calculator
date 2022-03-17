@@ -10,9 +10,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 return
             };
 
-            //negative
+            //insert negative
             if (this.innerHTML == '+/-') {
-                output.appendChild(document.createTextNode('-'));
+                if (output.innerHTML.length == 0) {
+                    output.innerHTML = '-';
+                    return
+                };
+
+                let x = [];
+                let y = '';
+                for (let i = 0; i < output.innerHTML.length; i++) {
+                    if (isFinite(output.innerHTML[i])) {
+                        y += output.innerHTML[i];
+                    } else {
+                        x.push(y); x.push(output.innerHTML[i]); y = '';
+                    };
+                };
+                x.push(y);
+
+                for (let i = x.length-1; i >= 0; i++) {
+                    if (isFinite(x[i])) {
+                        x.splice(i, 0, '-');
+                        break
+                    };
+                };
+
+                output.innerHTML = x.join('');
                 return
             };
 
@@ -24,23 +47,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
 
                 //otherwise
-                let ans = output.innerHTML;
-                for (let i = 0; i < output.innerHTML.length; i++) {
+                let ans = output.innerHTML.split('');
+                for (let i = 0; i < ans.length; i++) {
                     if (ans[i] == String.fromCharCode(247)) {
-                        ans = ans.replace(ans[i], '/');
+                        ans[i] = ' / ';
                     } else if (ans[i] == String.fromCharCode(215)) {
-                        ans = ans.replace(ans[i], '*');
+                        ans[i] = ' * ';
+                    } else if (ans[i] == String.fromCharCode(8722)) {
+                        ans[i] = ' - ';
+                    } else if (ans[i] == '-') {
+                        ans[i] = ' - ';
                     };
                 };
-
+                
+                
                 if (isNaN(output.innerHTML.slice(-1))) {
-                    let s = ans.split('')
-                    s.pop();
-                    output.innerHTML = "=" + eval(s.join(''))
+                    ans.pop();
+                    output.innerHTML = "=" + eval(ans.join(''))
                     return
                 };
 
-                output.innerHTML = "=" + eval(ans)
+                output.innerHTML = "=" + eval(ans.join(''));
                 return
             };
 
@@ -67,22 +94,26 @@ document.addEventListener("DOMContentLoaded", function() {
                     };
 
                     if (isNaN(output.innerHTML.slice(-1))) {
-                        let ls = output.innerHTML.split('');
-                        ls.pop(); ls.push(this.innerHTML);
-                        output.innerHTML = ls.join('');
+                        let x = output.innerHTML.split('');
+                        x.pop(); x.push(this.innerHTML);
+                        output.innerHTML = x.join('');
                         return
                     };
 
                     if (output.innerHTML[0] == '=') {
-                        let ls = output.innerHTML.split('');
-                        ls.shift(); ls.push(this.innerHTML);
-                        output.innerHTML = ls.join('');
+                        let x = output.innerHTML.split('');
+                        x.shift(); x.push(this.innerHTML);
+                        output.innerHTML = x.join('');
                         return
                     };
                 };
             
             // numbers
-            output.appendChild(document.createTextNode(this.innerHTML))            
+            if (output.innerHTML[0] == '=') {
+                output.innerHTML = this.innerHTML;
+                return
+            };
+            output.appendChild(document.createTextNode(this.innerHTML));
         };
     };
 });

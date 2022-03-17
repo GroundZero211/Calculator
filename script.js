@@ -28,11 +28,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
                 x.push(y);
 
-                for (let i = x.length-1; i >= 0; i++) {
-                    if (isFinite(x[i])) {
-                        x.splice(i, 0, '-');
-                        break
-                    };
+                if (isFinite(x[x.length-1])) {
+                    x.splice(x.length-1, 0, '-');
+                } else {
+                    x.splice(x.length, 0, '-');
                 };
 
                 output.innerHTML = x.join('');

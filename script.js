@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // undo
             if (this.innerHTML == String.fromCharCode(9003)) {  
-                if (output.innerHTML[0] == "=" || output.innerHTML[0] == '0') {
+                if (output.innerHTML[0] == "=") {
                     output.innerHTML = "";
                     return
                 };

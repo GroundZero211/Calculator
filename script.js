@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return
             };
 
-            // undo
+            // backspace
             if (this.innerHTML == String.fromCharCode(9003)) {  
                 if (output.innerHTML[0] == "=") {
                     output.innerHTML = "";

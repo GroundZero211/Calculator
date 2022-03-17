@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let x = [];
                 let y = '';
                 for (let i = 0; i < output.innerHTML.length; i++) {
-                    if (isFinite(output.innerHTML[i])) {
+                    if (isFinite(output.innerHTML[i]) || output.innerHTML[i] == '.') {
                         y += output.innerHTML[i];
                     } else {
                         x.push(y, output.innerHTML[i]); y = '';

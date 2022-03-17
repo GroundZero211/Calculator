@@ -108,12 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
             
             // numbers
-            if (output.innerHTML[0] == '=') {
-                output.innerHTML = this.innerHTML;
-                return
-            };
-
-            if (output.innerHTML[0] == '0') {
+            if (output.innerHTML[0] == '=' || output.innerHTML == '0') {
                 output.innerHTML = this.innerHTML;
                 return
             };

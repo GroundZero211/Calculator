@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //insert negative
             if (this.innerHTML == '+/-') {
-                if (output.innerHTML.length == 0) {
+                if (output.innerHTML.length == 0 || output.innerHTML[0] == '0') {
                     output.innerHTML = '-';
                     return
                 };
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // undo
             if (this.innerHTML == String.fromCharCode(9003)) {  
-                if (output.innerHTML[0] == "=") {
+                if (output.innerHTML[0] == "=" || output.innerHTML[0] == '0') {
                     output.innerHTML = "";
                     return
                 };
@@ -105,6 +105,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         output.innerHTML = x.join('');
                         return
                     };
+
+                    if (output.innerHTML[0] == '0') {
+                        let x = output.innerHTML.split('');
+                        x.push(this.innerHTML); output.innerHTML = x.join('');
+                        return
+                    }
                 };
             
             // numbers

@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // answer
             if (this.innerHTML == "=") {
                 //if length is 0
-                if (output.innerHTML.length == 0) {
+                if (output.innerHTML.length == 0 || output.innerHTML[0] == '=') {
                     return
                 };
 

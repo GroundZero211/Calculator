@@ -66,8 +66,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     return
                 };
 
-                output.innerHTML = "=" + eval(ans.join(''));
-                return
+                try {
+                    output.innerHTML = "=" + eval(ans.join(''));
+                    return
+                } catch {
+                    alert('Syntax error')
+                    return
+                }
             };
 
             // backspace
@@ -116,6 +121,15 @@ document.addEventListener("DOMContentLoaded", function() {
             if (output.innerHTML[0] == '=' || output.innerHTML == '0') {
                 output.innerHTML = this.innerHTML;
                 return
+            };
+
+            if (this.innerHTML == '.') {
+                if (output.innerHTML.slice(-1) == '.') {
+                    let x = output.innerHTML.split('');
+                    x.pop(); x.push(this.innerHTML);
+                    output.innerHTML = x.join('');
+                    return
+                };
             };
 
             output.appendChild(document.createTextNode(this.innerHTML));

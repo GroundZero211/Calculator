@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 || this.innerHTML == "+") {
                     let x = output.innerHTML.split('');
                     
-                    if (output.innerHTML.length == 0) {
+                    if (output.innerHTML.length == 0 || output.innerHTML.slice(-1) == '.') {
                         return
                     };
 

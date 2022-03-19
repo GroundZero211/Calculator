@@ -28,11 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
                 x.push(y);
 
-                if (isFinite(x[x.length-1])) {
-                    x.splice(x.length-1, 0, '-');
-                } else {
-                    x.splice(x.length, 0, '-');
-                };
+
+		if (isFinite(x[x.length-1]) && x[x.length-2] == "-") {
+		    x.splice(x.length-2, x.length-2)
+		} else if (isFinite(x[x.length-1]) && x[x.length-2] != "-") {
+		    x.splice(x.length-1, 0, "-")
+		} else {
+		    x.splice(x.length, 0, "-")
+		};
 
                 output.innerHTML = x.join('');
                 return
